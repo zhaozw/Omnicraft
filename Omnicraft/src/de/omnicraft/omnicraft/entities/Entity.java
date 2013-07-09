@@ -1,5 +1,6 @@
 package de.omnicraft.omnicraft.entities;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -11,6 +12,9 @@ public abstract class Entity {
 	protected float width;
 	protected float height;
 	protected Rectangle bounds;
+
+
+    protected Texture texture;
 	//protected int id;
 	// TODO: Eventuell den Konstruktor überprüfen und die World nur einmal zuweisen lassen
 	
@@ -22,7 +26,6 @@ public abstract class Entity {
 		this.position = position;
 		this.width = width;
 		this.height = height;
-		bounds = new Rectangle(position.x, position.y, width, height);
 	}
 	
 	
@@ -67,8 +70,16 @@ public abstract class Entity {
 	 * @return the bounds
 	 */
 	public Rectangle getBounds() {
-		return bounds;
+        if (bounds == null){
+            bounds = new Rectangle(position.x, position.y, width, height);
+            return bounds;
+        }else return bounds;
 	}
+
+    public Texture getTexture() {
+        return texture;
+    }
+
 	/**
 	 * @param bounds the bounds to set
 	 */

@@ -29,7 +29,9 @@ public class World {
 	public World(){
 		
 		world =  new com.badlogic.gdx.physics.box2d.World(gravity, doSleep);
-		
+
+
+        // Add some testing chunks
 		chunks.add(new Chunk(0));
 		chunks.add(new Chunk(1));
 		chunks.add(new Chunk(2));
@@ -37,6 +39,9 @@ public class World {
 		chunks.add(new Chunk(4));
 		chunks.add(new Chunk(5));
 		chunks.add(new Chunk(6));
+
+        //Add some test entities
+        entities.add(new TestBox(1,0,new Vector2(10,10),50,50));
 	}
 	
 }

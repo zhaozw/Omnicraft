@@ -17,8 +17,6 @@ public class Renderer {
 	SpriteBatch batch;
 	ShapeRenderer shapeRenderer;
 	OrthographicCamera cam;
-	float width,height;
-	Entity entity;
     int camDX,camDY;
 	
 	
@@ -35,20 +33,20 @@ public class Renderer {
 		cam.update();
 		batch.setProjectionMatrix(cam.combined);
 		shapeRenderer.setProjectionMatrix(cam.combined);
-		
-		
-		
+
 		batch.begin();
 		for(Chunk chunk : world.chunks){
 			for(int x = 0; x < Chunk.CHUNKWIDTH;x++){
 				for(int y = 0; y < Chunk.CHUNKHEIGHT; y++){
 					batch.draw(chunk.getBlock(x, y).getTexture(),chunk.getBlock(x, y).getX(),
 							   chunk.getBlock(x, y).getY(),Block.BLOCK_SIZE,Block.BLOCK_SIZE);
-					
+
 				}
 			}
 		}
+        for (Entity entity : world.entities)
+            batch.draw(entity.getTexture(), entity.getX(), entity.getY(), entity.getWidth(), entity.getHeight());
 		batch.end();
-		
+
 	}
 }

@@ -4,8 +4,8 @@ import com.badlogic.gdx.math.Vector2;
 
 public abstract class MovableEntity extends Entity {
 	
-	protected Vector2 velocity;
-	protected float speed;
+	protected Vector2 velocity; //Actual movement velocity (delta X Y)
+	protected float speed;     //Movement speed
 	protected float rotation;
 	
 	//TODO: Mass, etc. physics
