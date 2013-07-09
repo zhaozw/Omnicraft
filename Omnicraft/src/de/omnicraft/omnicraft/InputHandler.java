@@ -19,9 +19,23 @@ public class InputHandler implements InputProcessor {
 	@Override
 	public boolean keyDown(int keycode) {
 		switch (keycode) {
-		case Keys.W:
-			
-			break;
+		    case Keys.W:
+			    break;
+            case Keys.PLUS:
+                if(renderer.cam.zoom > 0.3f){
+                renderer.cam.zoom -= 0.1f;
+                }else{
+                    renderer.cam.zoom = 0.3f;
+                }
+                break;
+            case Keys.MINUS:
+                if(renderer.cam.zoom < 1.3f){
+                renderer.cam.zoom += 0.1f;
+                }else{
+                    renderer.cam.zoom = 1.3f;
+                }
+                break;
+
 
 		default:
 			break;
@@ -61,14 +75,29 @@ public class InputHandler implements InputProcessor {
 
 	@Override
 	public boolean mouseMoved(int screenX, int screenY) {
-		System.out.println(screenX + " " + Gdx.graphics.getWidth());
-		if(screenX > Gdx.graphics.getWidth() - 10){
-			renderer.cam.translate(1, 0);
-		}
-		if(screenX < 10){
-			renderer.cam.translate(-1, 0);
-		}
-		return false;
+        System.out.println(renderer.cam.zoom);
+		//System.out.println(screenY + " " + Gdx.graphics.getHeight());
+        //renderer.cam.translate(1, 0);
+        if(screenY < 10){
+            renderer.camDY = 2;
+            return  true;
+        }
+        if(screenY > Gdx.graphics.getHeight() - 10){
+            renderer.camDY = -2;
+            return true;
+        }
+        if(screenX > Gdx.graphics.getWidth() - 10) {
+            renderer.camDX = 2;
+            return true;
+        }
+		if(screenX < 10) {
+            renderer.camDX = -2;
+            return true;
+        }else {
+            renderer.camDX = 0;
+            renderer.camDY = 0;
+            return true;
+        }
 	}
 
 	@Override

@@ -19,6 +19,7 @@ public class Renderer {
 	OrthographicCamera cam;
 	float width,height;
 	Entity entity;
+    int camDX,camDY;
 	
 	
 	public Renderer(World world){
@@ -30,6 +31,7 @@ public class Renderer {
 	}
 	
 	public void render(){
+        cam.translate(camDX, camDY);
 		cam.update();
 		batch.setProjectionMatrix(cam.combined);
 		shapeRenderer.setProjectionMatrix(cam.combined);
