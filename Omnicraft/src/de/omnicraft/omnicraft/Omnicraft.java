@@ -2,6 +2,7 @@ package de.omnicraft.omnicraft;
 
 import com.badlogic.gdx.Game;
 
+import de.omnicraft.omnicraft.screens.MainGame;
 import de.omnicraft.omnicraft.screens.SplashScreen;
 
 
@@ -9,9 +10,8 @@ public class Omnicraft extends Game {
 	
 	
 	@Override
-	public void create() {	
-		//setScreen(new SplashScreen(this));
-		setScreen(new de.omnicraft.omnicraft.screens.MainGame(this));
+	public void create() {
+        setScreen(!MainGame.DEBUG ? new SplashScreen(this) : new MainGame(this));
 	}
 
 	@Override

@@ -15,7 +15,7 @@ public class MainGame implements Screen {
 	World world;
 	InputHandler inputHandler;
 	
-	public static final boolean DEBUG = true;
+	public static boolean DEBUG = true;
 	
 	public MainGame(Omnicraft game){
 		this.game = game;
