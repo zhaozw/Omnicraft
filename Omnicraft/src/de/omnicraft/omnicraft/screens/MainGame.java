@@ -11,6 +11,8 @@ import de.omnicraft.omnicraft.entities.Entity;
 import de.omnicraft.omnicraft.entities.MovableEntity;
 import de.omnicraft.omnicraft.world.World;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class MainGame implements Screen {
 	Omnicraft game;
 	Renderer renderer;
@@ -19,7 +21,7 @@ public class MainGame implements Screen {
 	
 	public static boolean DEBUG = true;
 	
-	public MainGame(Omnicraft game){
+	public MainGame(Omnicraft game) throws ClassNotFoundException, NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
 		this.game = game;
 		this.world = new World();
 		this.renderer = new Renderer(world);

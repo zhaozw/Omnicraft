@@ -15,6 +15,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 
 import de.omnicraft.omnicraft.Omnicraft;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class MainMenu implements Screen{
 	
 	Omnicraft game;
@@ -68,7 +70,19 @@ public class MainMenu implements Screen{
         }
  
         public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-        	game.setScreen(new MainGame(game));
+            try {
+                game.setScreen(new MainGame(game));
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            } catch (InstantiationException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
         }
 		});
 			

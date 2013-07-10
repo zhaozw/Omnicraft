@@ -9,23 +9,32 @@ import de.omnicraft.omnicraft.world.World;
 
 public class TestBox extends MovableEntity {
 
+    private static float width;
+    private static float height;
 
-    public TestBox(float speed, float rotation,Vector2 position, float width,float height) {
-		super(speed, rotation, position, width, height);
+
+    public TestBox(float speed, float rotation,Vector2 position) {
+		super(speed, rotation, position);
+
+
+
         this.texture = new Texture("data/TestChar.png");
         this.texture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         this.sprite = new Sprite(texture,0,0,texture.getWidth(),texture.getHeight());
 
-        entitiyBodyDef.type = BodyDef.BodyType.DynamicBody;
-        entitiyBodyDef.position.set(this.position);
+        width = sprite.getWidth();
+        height = sprite.getHeight();
+
+        entityBodyDef.type = BodyDef.BodyType.DynamicBody;
+        entityBodyDef.position.set(this.position);
 
 
-        entityBody = World.world.createBody(entitiyBodyDef);
+        entityBody = World.world.createBody(entityBodyDef);
 
-        entitiyShape.setAsBox(width / 2,height / 2);
+        entityShape.setAsBox(width / 2,height / 2);
         entityBody.setFixedRotation(true);
-        entityBody.createFixture(entitiyShape,70);
-        entitiyShape.dispose();
+        entityBody.createFixture(entityShape,70);
+        entityShape.dispose();
 
 
 

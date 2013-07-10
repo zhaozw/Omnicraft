@@ -46,7 +46,7 @@ public class Renderer {
 		}
         for (Entity entity : world.entities)
         {
-            entity.getSprite().draw(batch);
+           // entity.getSprite().draw(batch);
         }
 		batch.end();
 

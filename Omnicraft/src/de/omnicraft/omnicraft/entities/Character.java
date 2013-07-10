@@ -36,7 +36,7 @@ public class Character extends MovableEntity {
 	
 	public Character(float speed, float rotation, Vector2 position,
 			float width, float height) {
-		super(speed, rotation, position, width, height);
+		super(speed, rotation, position);
 		// TODO Auto-generated constructor stub
 	}
 	
