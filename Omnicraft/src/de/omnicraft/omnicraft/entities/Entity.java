@@ -31,25 +31,8 @@ public abstract class Entity {
     //Constructors
     public Entity(Vector2 position){
         this.position = position;
-        init();
     }
 
-    protected void init(){
-        entityBodyDef = new BodyDef();
-        entityShape = new PolygonShape();
-
-        entityBodyDef.type = BodyDef.BodyType.StaticBody;
-        entityBodyDef.position.set(position);
-
-
-        entityBody = World.world.createBody(entityBodyDef);
-
-        entityShape.setAsBox(width / 2,height / 2);
-        entityBody.setFixedRotation(true);
-        entityBody.createFixture(entityShape,70);
-        entityShape.dispose();
-
-    }
 
     public void update(float delta){
 
@@ -66,6 +49,10 @@ public abstract class Entity {
     //Getters and Setters
     public Sprite getSprite() {
         return sprite;
+    }
+
+    public Vector2 getPosition(){
+        return  position;
     }
 
 }

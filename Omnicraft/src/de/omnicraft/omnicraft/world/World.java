@@ -84,7 +84,7 @@ public class World {
 		chunks.add(new Chunk(6));
 
         //Add some test entities
-        entities.add(new TestBox(1,0,new Vector2(10,10)));
+        entities.add(new TestBox(0,0,new Vector2(0,0)));
 
 
 

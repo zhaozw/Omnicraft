@@ -21,8 +21,9 @@ public class InputHandler implements InputProcessor {
 	@Override
 	public boolean keyDown(int keycode) {
 		switch (keycode) {
-            case Keys.W:
+            case Keys.T:
 
+                break;
 		    case Keys.F3:
                 if(MainGame.DEBUG){
                     MainGame.DEBUG = false;

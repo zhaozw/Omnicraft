@@ -15,25 +15,9 @@ public abstract class MovableEntity extends Entity {
 
 
     @Override
-    protected void init() {
-        entityBodyDef = new BodyDef();
-        entityShape = new PolygonShape();
-
-        entityBodyDef.type = BodyDef.BodyType.DynamicBody;
-        entityBodyDef.position.set(this.position);
-
-
-        entityBody = World.world.createBody(entityBodyDef);
-
-        entityShape.setAsBox(width / 2,height / 2);
-        entityBody.setFixedRotation(true);
-        entityBody.createFixture(entityShape,70);
-        entityShape.dispose();
-    }
-
-    @Override
     public void update(float delta) {
         super.update(delta);
+        position = entityBody.getPosition();
     }
 
 
