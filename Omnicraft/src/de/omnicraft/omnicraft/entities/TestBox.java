@@ -12,10 +12,9 @@ public class TestBox extends MovableEntity {
 	}
 
 
-
     @Override
-	void update(float delta) {
-		
-	}
-
+    public void update(float delta) {
+        super.update(delta);
+        System.out.println("Test");
+    }
 }

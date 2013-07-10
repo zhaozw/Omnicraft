@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.GL10;
 import de.omnicraft.omnicraft.InputHandler;
 import de.omnicraft.omnicraft.Omnicraft;
 import de.omnicraft.omnicraft.Renderer;
+import de.omnicraft.omnicraft.entities.Entity;
+import de.omnicraft.omnicraft.entities.MovableEntity;
 import de.omnicraft.omnicraft.world.World;
 
 public class MainGame implements Screen {
@@ -31,7 +33,13 @@ public class MainGame implements Screen {
 		//Maybe move the clearing to the renderer
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-		
+
+        //Update all entities
+
+        for (Entity entity : world.entities){
+            entity.update(delta);
+        }
+
 		renderer.render();
 	}
 

@@ -27,8 +27,13 @@ public abstract class Entity {
 		this.width = width;
 		this.height = height;
 	}
-	
-	
+
+
+    public void update(float delta){
+
+    }
+
+
 	
 	/**
 	 * @return the position

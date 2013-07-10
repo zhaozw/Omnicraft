@@ -41,7 +41,7 @@ public class Character extends MovableEntity {
 	}
 	
 	@Override
-	void update(float delta) {
+    public void update(float delta) {
 		// TODO Auto-generated method stub
 		
 	}

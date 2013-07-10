@@ -15,10 +15,13 @@ public abstract class MovableEntity extends Entity {
 		this.speed = speed;
 		this.rotation = rotation;
 	}
-	
-	abstract void update(float delta);
 
-	/**
+    @Override
+    public void update(float delta) {
+        super.update(delta);
+    }
+
+    /**
 	 * @return the velocity
 	 */
 	public Vector2 getVelocity() {
