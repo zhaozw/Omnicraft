@@ -40,6 +40,7 @@ public class MainGame implements Screen {
             entity.update(delta);
         }
 
+        world.updateWorld();
 		renderer.render();
 	}
 

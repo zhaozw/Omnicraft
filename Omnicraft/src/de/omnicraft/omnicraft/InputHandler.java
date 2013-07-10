@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Input.Keys;
 
+import de.omnicraft.omnicraft.entities.TestBox;
 import de.omnicraft.omnicraft.screens.MainGame;
 import de.omnicraft.omnicraft.world.World;
 
@@ -20,6 +21,8 @@ public class InputHandler implements InputProcessor {
 	@Override
 	public boolean keyDown(int keycode) {
 		switch (keycode) {
+            case Keys.W:
+
 		    case Keys.F3:
                 if(MainGame.DEBUG){
                     MainGame.DEBUG = false;
@@ -81,7 +84,7 @@ public class InputHandler implements InputProcessor {
 
 	@Override
 	public boolean mouseMoved(int screenX, int screenY) {
-        if(MainGame.DEBUG) System.out.println(screenX + " " + screenY);
+        //if(MainGame.DEBUG) System.out.println(screenX + " " + screenY);
         if(screenY < 10){
             renderer.camDY = 2;
             return  true;

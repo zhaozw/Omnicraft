@@ -1,12 +1,19 @@
 package de.omnicraft.omnicraft.entities;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
+import com.badlogic.gdx.physics.box2d.World;
 
 public abstract class MovableEntity extends Entity {
 	
 	protected Vector2 velocity; //Actual movement velocity (delta X Y)
 	protected float speed;     //Movement speed
 	protected float rotation;
+    protected Body entityBody;
+    protected BodyDef entitiyBodyDef = new BodyDef();
+    protected PolygonShape entitiyShape = new PolygonShape();
 	
 	//TODO: Mass, etc. physics
 	
