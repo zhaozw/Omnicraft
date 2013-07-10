@@ -17,15 +17,15 @@ public class World {
     //Constants
     public static final int PIXEL_PER_METER = 16;
 
-	
-	// Entities and Terrain
-	public java.util.Vector<Entity> entities = new Vector<Entity>();
-	public List<Chunk> chunks = new ArrayList<Chunk>();
-	
-	//Physic Stuff
-	public static com.badlogic.gdx.physics.box2d.World world;
-	private Vector2 gravity = new Vector2(0.0f, -10.0f);
-	private boolean doSleep = true;
+
+    // Entities and Terrain
+    public java.util.Vector<Entity> entities = new Vector<Entity>();
+    public List<Chunk> chunks = new ArrayList<Chunk>();
+
+    //Physic Stuff
+    public static com.badlogic.gdx.physics.box2d.World world;
+    private Vector2 gravity = new Vector2(0.0f, -10.0f);
+    private boolean doSleep = true;
 
     private BodyDef groundBodyDef = new BodyDef();
     private PolygonShape groundBox = new PolygonShape();
@@ -37,15 +37,15 @@ public class World {
 
     private Body body;
 
-	
-	
-	
-	
-	
-	
-	public World() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-		
-		world =  new com.badlogic.gdx.physics.box2d.World(gravity, doSleep);
+
+
+
+
+
+
+    public World() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+
+        world =  new com.badlogic.gdx.physics.box2d.World(gravity, doSleep);
 
         groundBodyDef.position.set(0.0f,-20.0f);
         Body groundBody = world.createBody(groundBodyDef);
@@ -75,20 +75,20 @@ public class World {
 
 
         // Add some testing chunks
-		chunks.add(new Chunk(0));
-		chunks.add(new Chunk(1));
-		chunks.add(new Chunk(2));
-		chunks.add(new Chunk(3));
-		chunks.add(new Chunk(4));
-		chunks.add(new Chunk(5));
-		chunks.add(new Chunk(6));
+        chunks.add(new Chunk(0));
+        chunks.add(new Chunk(1));
+        chunks.add(new Chunk(2));
+        chunks.add(new Chunk(3));
+        chunks.add(new Chunk(4));
+        chunks.add(new Chunk(5));
+        chunks.add(new Chunk(6));
 
         //Add some test entities
-        entities.add(new TestBox(0,0,new Vector2(0,0)));
+        entities.add(new TestBox(0,0,new Vector2(0,100)));
 
 
 
-	}
+    }
 
 
 
@@ -96,5 +96,5 @@ public class World {
         world.step(timeStep,velocityIterations,positionIterations);
         Vector2 position = body.getPosition();
     }
-	
+
 }
