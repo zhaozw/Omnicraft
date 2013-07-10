@@ -1,13 +1,12 @@
 package de.omnicraft.omnicraft;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
-
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import de.omnicraft.omnicraft.blocks.Block;
 import de.omnicraft.omnicraft.entities.Entity;
+import de.omnicraft.omnicraft.screens.MainGame;
 import de.omnicraft.omnicraft.world.Chunk;
 import de.omnicraft.omnicraft.world.World;
 
@@ -18,6 +17,9 @@ public class Renderer {
 	ShapeRenderer shapeRenderer;
 	OrthographicCamera cam;
     int camDX,camDY;
+
+    //Debug
+    Box2DDebugRenderer debugRenderer;
 	
 	
 	public Renderer(World world){
@@ -26,6 +28,8 @@ public class Renderer {
 		shapeRenderer = new ShapeRenderer();
 		cam = new OrthographicCamera();
 		cam.setToOrtho(false);
+
+        debugRenderer = new Box2DDebugRenderer();
 	}
 	
 	public void render(){
@@ -46,10 +50,14 @@ public class Renderer {
 		}
         for (Entity entity : world.entities)
         {
-           // entity.getSprite().draw(batch);
+           entity.draw(batch);
         }
-		batch.end();
 
+        if (MainGame.DEBUG){
+            debugRenderer.render(World.world,cam.combined);
+        }
+
+		batch.end();
 
 	}
 }

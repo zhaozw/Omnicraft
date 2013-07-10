@@ -33,13 +33,14 @@ public class TestBox extends MovableEntity {
 
         entityShape.setAsBox(width / 2,height / 2);
         entityBody.setFixedRotation(true);
-        entityBody.createFixture(entityShape,70);
+        entityBody.createFixture(entityShape,70); //Later get the density from property list of entities
         entityShape.dispose();
 
 
 
 
 	}
+
 
 
     @Override

@@ -1,13 +1,6 @@
 package de.omnicraft.omnicraft.world;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Vector;
-
 import com.badlogic.gdx.math.Vector2;
-
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
@@ -15,7 +8,15 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import de.omnicraft.omnicraft.entities.Entity;
 import de.omnicraft.omnicraft.entities.TestBox;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
 public class World {
+    //Constants
+    public static final int PIXEL_PER_METER = 16;
+
 	
 	// Entities and Terrain
 	public java.util.Vector<Entity> entities = new Vector<Entity>();
@@ -85,21 +86,11 @@ public class World {
         //Add some test entities
         entities.add(new TestBox(1,0,new Vector2(10,10)));
 
-        spawnEntity("TestBox",new Vector2(10,10));
-
 
 
 	}
 
-    public void spawnEntity(String EntityClassName,Vector2 position) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
 
-        Class<?> mClass = Class.forName(EntityClassName);
-        Constructor<?> mConstructor = mClass.getConstructor(Vector2.class);
-        Object object = mConstructor.newInstance(new Object[]{ position });
-
-        entities.add((Entity) object);
-
-    }
 
     public void updateWorld(){
         world.step(timeStep,velocityIterations,positionIterations);
