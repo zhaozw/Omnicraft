@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 
 import de.omnicraft.omnicraft.entities.Entity;
@@ -42,6 +43,7 @@ public class World {
 
         //Add some test entities
         entities.add(new TestBox(1,0,new Vector2(10,10),32,32));
+
 	}
 	
 }

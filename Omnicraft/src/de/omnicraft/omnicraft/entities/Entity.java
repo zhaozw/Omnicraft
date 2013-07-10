@@ -1,6 +1,7 @@
 package de.omnicraft.omnicraft.entities;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
@@ -15,6 +16,12 @@ public abstract class Entity {
 
 
     protected Texture texture;
+
+    public Sprite getSprite() {
+        return sprite;
+    }
+
+    protected Sprite sprite;
 	//protected int id;
 	// TODO: Eventuell den Konstruktor überprüfen und die World nur einmal zuweisen lassen
 	
